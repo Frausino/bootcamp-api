@@ -28,7 +28,7 @@ https://linkedin.com/in/davi-r-frausino
 
 ---
 
-# Objetivo do Projeto
+## Objetivo do Projeto
 
 O projeto implementa uma interface web moderna para consulta automática de endereços brasileiros utilizando a API pública ViaCEP.
 
