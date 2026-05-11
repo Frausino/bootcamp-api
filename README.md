@@ -1,16 +1,68 @@
-# React + Vite
+# Bootcamp API — Consulta Inteligente de CEP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação desenvolvida para a Entrega Intermediária do BootCamp com foco em:
 
-Currently, two official plugins are available:
+- Integração com API pública REST;
+- Testes automatizados;
+- CI/CD com GitHub Actions;
+- Deploy em nuvem;
+- Fluxo profissional Git/GitHub.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+# Deploy Online
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+https://bootcamp-api.vercel.app/
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Repositório GitHub
+
+https://github.com/Frausino/bootcamp-api
+
+---
+
+# LinkedIn
+
+https://linkedin.com/in/davi-r-frausino
+
+---
+
+# Objetivo do Projeto
+
+O projeto implementa uma interface web moderna para consulta automática de endereços brasileiros utilizando a API pública ViaCEP.
+
+A aplicação permite que o usuário informe um CEP válido e receba automaticamente:
+
+- Logradouro;
+- Bairro;
+- Cidade;
+- Estado (UF).
+
+Além da funcionalidade principal, o projeto demonstra práticas modernas de engenharia de software:
+
+- Consumo de APIs REST;
+- Arquitetura modular;
+- Testes automatizados;
+- Integração contínua (CI);
+- Deploy automatizado.
+
+---
+
+# Funcionalidades
+
+## Consulta automática de CEP
+
+Integração com API pública ViaCEP:
+
+https://viacep.com.br
+
+---
+
+# Autor
+
+## Davi Rosa Frausino
+
+GitHub: https://github.com/Frausino
+
+LinkedIn: https://linkedin.com/in/davi-r-frausino

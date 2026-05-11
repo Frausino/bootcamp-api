@@ -1,73 +1,76 @@
 import { useState } from "react";
 import { buscarCEP } from "./services/viacepService";
+import "./App.css";
 
 function App() {
-  const [cep, setCep] = useState("");
-  const [dados, setDados] = useState(null);
-  const [erro, setErro] = useState("");
-  const [loading, setLoading] = useState(false);
+    const [cep, setCep] = useState("");
+    const [dados, setDados] = useState(null);
+    const [erro, setErro] = useState("");
+    const [loading, setLoading] = useState(false);
 
-  async function consultarCEP() {
-    try {
-      setErro("");
-      setLoading(true);
+    async function consultarCEP() {
+        try {
+            setErro("");
+            setDados(null);
 
-      const resultado = await buscarCEP(cep);
+            const cepLimpo = cep.replace(/\D/g, "");
 
-      setDados(resultado);
-    } catch (err) {
-      setErro(err.message);
-      setDados(null);
-    } finally {
-      setLoading(false);
+            if (cepLimpo.length !== 8) {
+                throw new Error(
+                    "Digite um CEP válido com 8 números"
+                );
+            }
+
+            setLoading(true);
+
+            const resultado = await buscarCEP(
+                cepLimpo
+            );
+
+            setDados(resultado);
+        } catch (err) {
+            setErro(err.message);
+        } finally {
+            setLoading(false);
+        }
     }
-  }
 
-  return (
-    <div
-      style={{
-        padding: "40px",
-        fontFamily: "Arial",
-      }}
-    >
-      <h1>Consulta de CEP</h1>
+    return (
+        <div className="container">
+            <div className="card">
+                <div className="header">
+                    <h1>Consulta Inteligente de CEP</h1>
 
-      <input
-        type="text"
-        placeholder="Digite o CEP"
-        value={cep}
-        onChange={(e) => setCep(e.target.value)}
-      />
+                    <p>
+                        Integração com API pública
+                        ViaCEP utilizando React,
+                        testes automatizados,
+                        CI/CD e deploy na nuvem.
+                    </p>
+                </div>
 
-      <button onClick={consultarCEP}>Buscar</button>
+                <div className="searchBox">
+                    <input
+                        type="text"
+                        placeholder="Digite o CEP"
+                        value={cep}
+                        maxLength={9}
+                        onChange={(e) =>
+                            setCep(e.target.value)
+                        }
+                    />
 
-      {loading && <p>Carregando...</p>}
+                    <button
+                        onClick={consultarCEP}
+                    >
+                        Buscar CEP
+                    </button>
+                </div>
 
-      {erro && <p style={{ color: "red" }}>{erro}</p>}
-
-      {dados && (
-        <div>
-          <h2>Resultado</h2>
-
-          <p>
-            <strong>Rua:</strong> {dados.logradouro}
-          </p>
-
-          <p>
-            <strong>Bairro:</strong> {dados.bairro}
-          </p>
-
-          <p>
-            <strong>Cidade:</strong> {dados.localidade}
-          </p>
-
-          <p>
-            <strong>UF:</strong> {dados.uf}
-          </p>
-        </div>
-      )}
-    </div>
-  );
-}
+                {loading && (
+                    <div className="loading">
+                        Consultando API...
+                    </div>
+                )}
 
 export default App;
